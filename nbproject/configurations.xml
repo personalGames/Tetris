@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f2" displayName="3rdParty" projectFiles="true">
+        <itemPath>src/tinyxml2.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="Commands" projectFiles="true">
+        <itemPath>src/Bomb.h</itemPath>
+        <itemPath>src/Building.h</itemPath>
+        <itemPath>src/Command.h</itemPath>
+        <itemPath>src/Complaint.h</itemPath>
+        <itemPath>src/Fall.h</itemPath>
+        <itemPath>src/FallEvent.h</itemPath>
+        <itemPath>src/FallToGround.h</itemPath>
+        <itemPath>src/Food.h</itemPath>
+        <itemPath>src/LeftRight.h</itemPath>
+        <itemPath>src/RemoveCompletedLines.h</itemPath>
+        <itemPath>src/Rotate.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Elements" projectFiles="true">
+        <itemPath>src/AnimatedSprite.h</itemPath>
+        <itemPath>src/Animation.h</itemPath>
+        <itemPath>src/Animations.h</itemPath>
+        <itemPath>src/EmptySquare.h</itemPath>
+        <itemPath>src/HashEnum.h</itemPath>
+        <itemPath>src/Images.h</itemPath>
+        <itemPath>src/MeassureBoard.h</itemPath>
+        <itemPath>src/MeassureMargin.h</itemPath>
+        <itemPath>src/Square.h</itemPath>
+        <itemPath>SquareAnimal.h</itemPath>
+        <itemPath>src/SquareAnimation.h</itemPath>
+        <itemPath>src/SquareExplosion.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Game" projectFiles="true">
+        <itemPath>src/Game.h</itemPath>
+        <itemPath>LevelGenerator.h</itemPath>
+        <itemPath>src/Painter.h</itemPath>
+        <itemPath>src/Score.h</itemPath>
+        <itemPath>src/TableBoard.h</itemPath>
+        <itemPath>src/Window.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f7" displayName="Managers" projectFiles="true">
+        <itemPath>src/EventManager.h</itemPath>
+        <itemPath>src/ImagesManager.h</itemPath>
+        <itemPath>src/ResponseEvents.h</itemPath>
+        <itemPath>src/TypeEvents.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Shapes" projectFiles="true">
+        <itemPath>src/IShape.h</itemPath>
+        <itemPath>src/ImportsShapes.h</itemPath>
+        <itemPath>src/JShape.h</itemPath>
+        <itemPath>src/LShape.h</itemPath>
+        <itemPath>src/OShape.h</itemPath>
+        <itemPath>src/SShape.h</itemPath>
+        <itemPath>src/Shape.h</itemPath>
+        <itemPath>src/Shapes.h</itemPath>
+        <itemPath>src/SpecialShape.h</itemPath>
+        <itemPath>src/TShape.h</itemPath>
+        <itemPath>src/ZShape.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="Time" projectFiles="true">
+        <itemPath>src/Timer.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f7" displayName="3rdParty" projectFiles="true">
+        <itemPath>src/tinyxml2.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Commands" projectFiles="true">
+        <itemPath>src/Bomb.cpp</itemPath>
+        <itemPath>src/Building.cpp</itemPath>
+        <itemPath>src/Command.cpp</itemPath>
+        <itemPath>src/Complaint.cpp</itemPath>
+        <itemPath>src/Fall.cpp</itemPath>
+        <itemPath>src/FallEvent.cpp</itemPath>
+        <itemPath>src/FallToGround.cpp</itemPath>
+        <itemPath>src/Food.cpp</itemPath>
+        <itemPath>src/LeftRight.cpp</itemPath>
+        <itemPath>src/RemoveCompletedLines.cpp</itemPath>
+        <itemPath>src/Rotate.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Elements" projectFiles="true">
+        <itemPath>src/AnimatedSprite.cpp</itemPath>
+        <itemPath>src/Animation.cpp</itemPath>
+        <itemPath>src/EmptySquare.cpp</itemPath>
+        <itemPath>src/Square.cpp</itemPath>
+        <itemPath>src/SquareAnimal.cpp</itemPath>
+        <itemPath>src/SquareAnimation.cpp</itemPath>
+        <itemPath>TypeSquare.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Game" projectFiles="true">
+        <itemPath>src/Game.cpp</itemPath>
+        <itemPath>src/LevelGenerator.cpp</itemPath>
+        <itemPath>src/Painter.cpp</itemPath>
+        <itemPath>src/Score.cpp</itemPath>
+        <itemPath>src/TableBoard.cpp</itemPath>
+        <itemPath>src/Window.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="Managers" projectFiles="true">
+        <itemPath>src/EventManager.cpp</itemPath>
+        <itemPath>src/ImagesManager.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="Shape" projectFiles="true">
+        <itemPath>src/IShape.cpp</itemPath>
+        <itemPath>src/JShape.cpp</itemPath>
+        <itemPath>src/LShape.cpp</itemPath>
+        <itemPath>src/OShape.cpp</itemPath>
+        <itemPath>src/SShape.cpp</itemPath>
+        <itemPath>src/Shape.cpp</itemPath>
+        <itemPath>src/SpecialShape.cpp</itemPath>
+        <itemPath>src/TShape.cpp</itemPath>
+        <itemPath>src/ZShape.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Timer" projectFiles="true">
+        <itemPath>src/Timer.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/mainTestShapes.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>include/elements</Elem>
+    <Elem>include/game</Elem>
+    <Elem>include/shape</Elem>
+    <Elem>include/timer</Elem>
+    <Elem>include/command</Elem>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>true</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-std=c++11 -g -Wall</commandLine>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lsfml-graphics</linkerOptionItem>
+            <linkerOptionItem>-lsfml-window</linkerOptionItem>
+            <linkerOptionItem>-lsfml-system</linkerOptionItem>
+            <linkerOptionItem>-lsfml-audio</linkerOptionItem>
+            <linkerOptionItem>-lboost_system</linkerOptionItem>
+            <linkerOptionItem>-lboost_filesystem</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="LevelGenerator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SquareAnimal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TypeSquare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/AnimatedSprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/AnimatedSprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Animation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Animation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Animations.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Bomb.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Bomb.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Building.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Building.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Command.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Complaint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Complaint.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/EmptySquare.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/EmptySquare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/EventManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/EventManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Fall.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Fall.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FallEvent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FallEvent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FallToGround.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FallToGround.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Food.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Food.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/HashEnum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Images.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ImagesManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ImagesManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ImportsShapes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/JShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/JShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/LShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LeftRight.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/LeftRight.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LevelGenerator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MeassureBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MeassureMargin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/OShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/OShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Painter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Painter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/RemoveCompletedLines.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/RemoveCompletedLines.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ResponseEvents.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Rotate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Rotate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Score.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Shape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shapes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SpecialShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SpecialShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Square.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Square.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SquareAnimal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SquareAnimation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SquareAnimation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SquareExplosion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TableBoard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TableBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Timer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TypeEvents.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ZShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ZShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mainTestShapes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tinyxml2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tinyxml2.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="LevelGenerator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SquareAnimal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TypeSquare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/AnimatedSprite.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/AnimatedSprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Animation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Animation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Animations.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Bomb.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Bomb.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Building.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Building.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Command.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Complaint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Complaint.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/EmptySquare.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/EmptySquare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/EventManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/EventManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Fall.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Fall.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FallEvent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FallEvent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FallToGround.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FallToGround.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Food.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Food.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/HashEnum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Images.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ImagesManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ImagesManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ImportsShapes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/JShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/JShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/LShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LeftRight.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/LeftRight.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/LevelGenerator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MeassureBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MeassureMargin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/OShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/OShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Painter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Painter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/RemoveCompletedLines.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/RemoveCompletedLines.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ResponseEvents.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Rotate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Rotate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Score.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Shape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shapes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SpecialShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SpecialShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Square.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Square.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SquareAnimal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SquareAnimation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SquareAnimation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/SquareExplosion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TableBoard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TableBoard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Timer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TypeEvents.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ZShape.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ZShape.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mainTestShapes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tinyxml2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tinyxml2.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

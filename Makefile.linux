@@ -1,0 +1,143 @@
+# Where your MinGW SDL is installed
+SDL_ROOT_DIR = /usr
+ 
+CFLAGS   = `$(SDL_ROOT_DIR)/bin/sdl2-config --cflags --libs --static-libs` \
+           -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2main \
+	   -std=c++11 -g -Wall -Wextra
+CXXFLAGS = `$(SDL_ROOT_DIR)/bin/sdl2-config --cflags --libs --static-libs` \
+           -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2main \
+	   -std=c++11 -g -Wall -Wextra
+LDFLAGS  = `$(SDL_ROOT_DIR)/bin/sdl2-config  --libs --static-libs` \
+           -lSDL2_image -lSDL2_ttf -lSDL2_mixer \
+           -static-libgcc -static-libstdc++
+ 
+# Compilers
+CC  = /usr/bin/gcc
+CXX = /usr/bin/g++
+CCC = /usr/bin/g++
+
+# Environment
+MKDIR=mkdir
+
+ 
+# Your program name and object files
+EXE  = tetris
+
+# Object Directory
+CND_BUILDDIR=build
+CND_DISTDIR=dist
+
+OBJECTDIR=${CND_BUILDDIR}
+OBJECTSOURCE=src
+SOURCES=\
+	main.cpp \
+	mainTestShapes.cpp \
+	command/Bomb.cpp \
+	command/Building.cpp \
+	command/Command.cpp \
+	command/Fall.cpp \
+	command/FallEvent.cpp \
+	command/FallToGround.cpp \
+	command/LeftRight.cpp \
+	command/RemoveCompletedLines.cpp \
+	command/Rotate.cpp \
+	elements/EmptySquare.cpp \
+	elements/Square.cpp \
+	elements/SquareExplosion.cpp \
+	game/Game.cpp \
+	game/Painter.cpp \
+	game/Score.cpp \
+	game/TableBoard.cpp \
+	game/Window.cpp \
+	resources/ImagesManager.cpp \
+	shape/IShape.cpp \
+	shape/JShape.cpp \
+	shape/LShape.cpp \
+	shape/OShape.cpp \
+	shape/SShape.cpp \
+	shape/Shape.cpp \
+	shape/SpecialShape.cpp \
+	shape/TShape.cpp \
+	shape/ZShape.cpp \
+	timer/Timer.cpp
+	
+OBJECTS=${OBJECTDIR}/main.o \
+	${OBJECTDIR}/mainTestShapes.o \
+	${OBJECTDIR}/command/Bomb.o \
+	${OBJECTDIR}/command/Building.o \
+	${OBJECTDIR}/command/Command.o \
+	${OBJECTDIR}/command/Fall.o \
+	${OBJECTDIR}/command/FallEvent.o \
+	${OBJECTDIR}/command/FallToGround.o \
+	${OBJECTDIR}/command/LeftRight.o \
+	${OBJECTDIR}/command/RemoveCompletedLines.o \
+	${OBJECTDIR}/command/Rotate.o \
+	${OBJECTDIR}/elements/EmptySquare.o \
+	${OBJECTDIR}/elements/Square.o \
+	${OBJECTDIR}/elements/SquareExplosion.o \
+	${OBJECTDIR}/game/Game.o \
+	${OBJECTDIR}/game/Painter.o \
+	${OBJECTDIR}/game/Score.o \
+	${OBJECTDIR}/game/TableBoard.o \
+	${OBJECTDIR}/game/Window.o \
+	${OBJECTDIR}/resources/ImagesManager.o \
+	${OBJECTDIR}/shape/IShape.o \
+	${OBJECTDIR}/shape/JShape.o \
+	${OBJECTDIR}/shape/LShape.o \
+	${OBJECTDIR}/shape/OShape.o \
+	${OBJECTDIR}/shape/SShape.o \
+	${OBJECTDIR}/shape/Shape.o \
+	${OBJECTDIR}/shape/SpecialShape.o \
+	${OBJECTDIR}/shape/TShape.o \
+	${OBJECTDIR}/shape/ZShape.o \
+	${OBJECTDIR}/timer/Timer.o
+
+ 
+# No need to edit anything from here below	
+all: $(EXE)
+	cp -r resources ${CND_DISTDIR}
+
+# Clean Targets
+clear: 
+	${RM} -r ${CND_BUILDDIR}
+	${RM} -r ${CND_DISTDIR}
+	${MKDIR} ${CND_BUILDDIR}
+	${MKDIR} ${CND_DISTDIR}
+	
+$(EXE): $(OBJECTS) 
+	# linking
+	$(CXX) $(OBJECTS) -o ${CND_DISTDIR}/$(EXE) $(LDFLAGS)
+
+${CND_BUILDDIR}/%.o: ${OBJECTSOURCE}/%.cpp
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+	
+build/command/%.o: ${OBJECTSOURCE}/command/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/command
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+	
+build/resources/%.o: ${OBJECTSOURCE}/resources/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/resources
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+	
+build/game/%.o: ${OBJECTSOURCE}/game/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/game
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+
+build/elements/%.o: ${OBJECTSOURCE}/elements/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/elements
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+	
+build/shape/%.o: ${OBJECTSOURCE}/shape/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/shape
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@
+	
+build/timer/%.o: ${OBJECTSOURCE}/timer/%.cpp
+	${MKDIR} -p ${CND_BUILDDIR}/timer
+	# Compiling $<...
+	$(CXX) $(CFLAGS) $(INCLUDE) $< -c -o $@

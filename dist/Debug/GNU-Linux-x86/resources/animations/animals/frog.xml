@@ -1,0 +1,7 @@
+<animation>
+	<num_frames v='8' />
+	<size_frame x='16' y='16' />
+	<num_columns v='8' />
+	<num_rows v='1' />
+	<image v='resources/animations/animals/images/frog.png' />
+</animation>
