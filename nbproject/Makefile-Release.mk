@@ -70,8 +70,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=
-CXXFLAGS=
+CCFLAGS=-std=c++11 -g -Wall
+CXXFLAGS=-std=c++11 -g -Wall
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -80,7 +80,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lboost_system -lboost_filesystem
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}

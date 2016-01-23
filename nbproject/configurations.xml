@@ -301,6 +301,7 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <commandLine>-std=c++11 -g -Wall</commandLine>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -308,6 +309,16 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lsfml-graphics</linkerOptionItem>
+            <linkerOptionItem>-lsfml-window</linkerOptionItem>
+            <linkerOptionItem>-lsfml-system</linkerOptionItem>
+            <linkerOptionItem>-lsfml-audio</linkerOptionItem>
+            <linkerOptionItem>-lboost_system</linkerOptionItem>
+            <linkerOptionItem>-lboost_filesystem</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="/home/dorian/Proyectos/Codigo/C++/Tetris/src/TitleScene.h"
             ex="false"
