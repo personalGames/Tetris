@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Tetris-second-try
+PROJECTNAME=Tetris
 
 # Active Configuration
 DEFAULTCONF=Debug

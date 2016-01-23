@@ -18,11 +18,10 @@ enum class Shapes {
     Z,
     S,
     I,
-    J,
-    Special
+    J
 };
 
-static int NUMBER_SHAPES = 8;
+static int NUMBER_SHAPES = 7;
 
 #endif	/* SHAPES_H */
 

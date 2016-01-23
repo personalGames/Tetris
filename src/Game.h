@@ -27,8 +27,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
-//EVENTS
-#include "Building.h"
 
 //TODO: reorganizar
 #include "Shape.h"
@@ -44,9 +42,6 @@
 #include "Rotate.h"
 #include "RemoveCompletedLines.h"
 #include "FallEvent.h"
-#include "Bomb.h"
-#include "Complaint.h"
-#include "Food.h"
 #include "TypeSquare.h"
 
 #include <iostream>
@@ -134,7 +129,6 @@ private:
     
     bool special;
     
-    Building* building;
     
 
     /**

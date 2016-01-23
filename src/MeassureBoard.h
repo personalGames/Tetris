@@ -11,7 +11,7 @@
 /**
  * Measure of the board of the game
  */
-struct Board {
+struct BoardGrid {
     //width and heigth of one cell of the board
     int heigthCell;
     int widthCell;

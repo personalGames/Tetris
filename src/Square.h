@@ -24,10 +24,8 @@ public:
         
     }
     
-    virtual bool isAnimationFinished();
-    
 
-    virtual void setGraphics(Board &board, sf::Texture *image);
+    virtual void setGraphics(BoardGrid &board, sf::Texture *image);
     
     virtual void setImage(sf::Texture * image);
     
@@ -63,7 +61,7 @@ public:
 
     virtual int compareTo(Square *o);
 
-    Board getBoard(){
+    BoardGrid getBoard(){
         return board;
     }
     
@@ -78,7 +76,7 @@ public:
     }
     
 protected:
-    Board board;
+    BoardGrid board;
     int x;
     int y;
     int pointXBoard;
@@ -88,7 +86,7 @@ protected:
     bool readyToPaint;
     TypeSquare type;
     
-    void setDataTableBoard(Board &board);
+    void setDataTableBoard(BoardGrid &board);
 };
 
 #endif	/* SQUARE_H */

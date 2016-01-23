@@ -6,15 +6,15 @@
  */
 
 #include "Score.h"
+#include <cmath>
 
 Score::Score() {
     score = 0;
     lines = 0;
-    level = 1;
+    level = 10;
+    linesNextLevel = 0;
     nextLevel = 0;
-    velocity=1000;
-    velocityBuilding=7000;
-    calculateNextLevel();
+    calculateVelocity();
 }
 
 Score::Score(const Score& orig) {
@@ -23,7 +23,6 @@ Score::Score(const Score& orig) {
     level = orig.level;
     
     velocity=orig.velocity;
-    velocityBuilding=orig.velocityBuilding;
     
     calculateNextLevel();
 }
@@ -32,23 +31,30 @@ Score::~Score() {
 
 }
 
-void Score::explodedSquares(int numberSquares){
-    score+=((numberSquares)*0.2)*4;
-    score+=numberSquares*3;
-}
 
 void Score::incrementLine(int x) {
-    int plus=((x-1)*0.2)*5;
-    lines+=x;
-    
-    while (x > 0) {
-        score += 10;
-        x--;
+    int plus;
+    switch(x){
+        case 1:
+            plus=40;
+            break;
+        case 2:
+            plus=100;
+            break;
+        case 3:
+            plus=300;
+            break;
+        default:
+            plus=1200;
+            break;
     }
+    lines+=x;
+    linesNextLevel+=x;
     
-    score+=plus;
+    score += plus * level;
+    
 
-    while (score >= nextLevel) {
+    while (linesNextLevel >= 10) {
         level++;
         //otras consecuencias, subir velocidad, dificultad...
         calculateVelocity();
@@ -59,11 +65,14 @@ void Score::incrementLine(int x) {
 
 
 void Score::calculateNextLevel() {
-    nextLevel = nextLevel + 10 * (level * 3);
+    linesNextLevel-=10;
 }
 
 void Score::calculateVelocity() {
-    velocity=1000-(level*0.1);
-    velocityBuilding=5000-(level*0.1);
+    if(level>10){
+        velocity= 100;
+    }else{
+        velocity = 100 * (11-level);
+    }
 }
 

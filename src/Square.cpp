@@ -15,7 +15,6 @@ Square::Square() {
     sizeImage.height = 0;
     sizeImage.width = 0;
     image = nullptr;
-    //    sprite=new sf::Sprite();
     pointXBoard = 0;
     pointYBoard = 0;
     readyToPaint = false;
@@ -27,11 +26,6 @@ Square::Square(const Square& orig) {
 
     pointXBoard = orig.pointXBoard;
     pointYBoard = orig.pointYBoard;
-    //    sprite=new sf::Sprite();
-    //    sf::Sprite* sprite2=orig.sprite;
-    //    sf::Texture* texture=sprite2->getTexture();
-    //    sprite->setTexture(*(orig.sprite->getTexture()));
-    //    sprite->setScale(orig.sprite->getScale());
     image = orig.image;
     x = orig.getX();
     y = orig.getY();
@@ -39,7 +33,7 @@ Square::Square(const Square& orig) {
     type=orig.type;
 }
 
-void Square::setDataTableBoard(Board &board) {
+void Square::setDataTableBoard(BoardGrid &board) {
     this->board = board;
     sizeImage.height = board.heigthCell;
     sizeImage.width = board.widthCell;
@@ -61,18 +55,13 @@ void Square::paint(sf::RenderWindow* pLienzo) {
         pLienzo->draw(*sprite);
         delete sprite;
     }
-//    if(sprite!=nullptr){
-//        sprite->setPosition(pointXBoard + x * sizeImage.width,
-//                pointYBoard + y * sizeImage.height);
-//        pLienzo->draw(*sprite);
-//    }
 }
 
 int Square::compareTo(Square *o) {
     return abs(this->x - o->getX()) + abs(this->y - o->getY());
 }
 
-void Square::setGraphics(Board &board, sf::Texture* image) {
+void Square::setGraphics(BoardGrid &board, sf::Texture* image) {
     if (image != nullptr) {
         //lanzar excepcion? No.
         setImage(image);
@@ -84,18 +73,10 @@ void Square::setGraphics(Board &board, sf::Texture* image) {
 void Square::setImage(sf::Texture* image) {
     if (image != nullptr) {
         this->image = image;
-//        sprite=new sf::Sprite();
-//        sprite->setTexture(*image);
-//        float scaleX=(sizeImage.width*1.0)/((image->getSize().x)*1.0);
-//        float scaleY=(sizeImage.height*1.0)/((image->getSize().y)*1.0);
-//        sprite->setScale(scaleX,scaleY);
     }
-}
-
-bool Square::isAnimationFinished() {
-    return true;
 }
 
 Square* Square::clone() const {
     return new Square(*this);
 }
+

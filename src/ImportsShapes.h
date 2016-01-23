@@ -17,7 +17,6 @@
 #include "ZShape.h"
 #include "SShape.h"
 #include "JShape.h"
-#include "SpecialShape.h"
 
 
 #endif	/* IMPORTSSHAPES_H */

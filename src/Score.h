@@ -35,19 +35,13 @@ public:
         return velocity;
     }
     
-    inline int getVelocityBuilding() const {
-        return velocityBuilding;
-    }
-    
-    void explodedSquares(int numberSquares);
-    
 private:
     int score;
     int lines;
+    int linesNextLevel;
     int level;
     int nextLevel;
     int velocity;
-    int velocityBuilding;
     
     inline void incrementLevel(int x){
         level+=x;

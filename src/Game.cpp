@@ -54,7 +54,6 @@ Game::~Game() {
 void Game::setEventsGame(){
     Command* comando= new RemoveCompletedLines(board, score);
     board.addCommand(comando);
-    building =new Building(board,score);
 }
 
 void Game::startGame() {
@@ -129,8 +128,6 @@ void Game::logicGame() {
     board.executeShapes();
     board.executeSpecialShapes();
     
-    //construyo...
-    building->execute();
     
     //borro shapes del board que ya estén totalmente eliminados
     board.clearAllShapes();
@@ -242,11 +239,7 @@ void Game::newShape() {
             board.addShape(shapeFalling);
         }
 
-        int azar = ((rand() % 100));
-        if (azar < 40) {
-            special=true;
-            setNewSpecialShape();
-        } else {
+    
             special=false;
             //get the next shape
             shapeFalling = nextShape;
@@ -260,7 +253,7 @@ void Game::newShape() {
 
 
             //set the right graphics for the shape
-            Board meassureBoard = board.getMeassureBoard();
+            BoardGrid meassureBoard = board.getMeassureBoard();
             shapeFalling->setGraphics(meassureBoard, nullptr);
             //undo the position of the square when was created in nextShapeFall())
             shapeFalling->incrementSquare(xPosition - 2 + 2, -1);
@@ -275,7 +268,7 @@ void Game::newShape() {
             //create the command that moves the shape to the ground
             Command* command = new Fall(board, *shapeFalling, score.getVelocity());
             shapeFalling->addCommand(command);
-        }
+        
     }
 
 }
@@ -287,7 +280,7 @@ void Game::nextShapeFall() {
     Shapes shapeSelected = static_cast<Shapes> ((rand() % 100) % NUMBER_SHAPES);
     //set the graphics to the square
     sf::Texture* image = ImagesManager::getInstance().getImage(Images::Square);
-    Board meassureBoardNextShape=painter->getMeassureBoardNextShape();
+    BoardGrid meassureBoardNextShape=painter->getMeassureBoardNextShape();
     square->setGraphics(meassureBoardNextShape, image);
     
     switch (shapeSelected) {
@@ -312,65 +305,6 @@ void Game::nextShapeFall() {
         case Shapes::J:
             nextShape = new JShape(*square);
             break;
-        case Shapes::Special:
-            nextShapeFall();
-            break;
     }
     delete square;
-}
-
-void Game::setNewSpecialShape() {
-    //square example
-    Square* square = new Square(1, 1);
-    //set the right graphics for the shape
-    Board meassureBoard = board.getMeassureBoard();
-    
-    int azar = ((rand() % 4));
-    sf::Texture* image=ImagesManager::getInstance().getImage(Images::Bomb);
-    Command* command;
-    switch(azar){
-        case 0:
-            image=ImagesManager::getInstance().getImage(Images::Bomb);
-            break;
-        case 1:
-            image=ImagesManager::getInstance().getImage(Images::Complaint);
-            break;
-        case 2:
-            image=ImagesManager::getInstance().getImage(Images::Maze);
-            break;
-        case 3:
-            image=ImagesManager::getInstance().getImage(Images::Food);
-            break;
-    }
-    
-    square->setGraphics(meassureBoard, image);
-    shapeFalling=new SpecialShape(square);
-    //recoloco el shape al centro
-    shapeFalling->incrementSquare(xPosition -2 +2, -1);
-    
-    switch(azar){
-        case 0:
-            command = new Bomb(board, *shapeFalling, score, score.getVelocity());
-            break;
-        case 1:
-            command = new Complaint(board, *shapeFalling, score.getVelocity());
-            break;
-        case 2:
-            command = new Bomb(board, *shapeFalling, score, score.getVelocity());
-            break;
-        case 3:
-            command = new Food(board, *shapeFalling, score.getVelocity());
-            break;
-    }
-    
-    shapeFalling->addCommand(command);
-    
-    delete square;
-    
-    //check if have space 
-    TypeSquare typeColision=board.isFilled(shapeFalling);
-    if (typeColision!=TypeSquare::NoSquare) {
-        //end of game
-        setGameOver(true);
-    }
 }

@@ -8,7 +8,7 @@
 
 #include "Painter.h"
 
-Painter::Painter(Window &pantalla, Board board): pantalla(&pantalla), board(board) {
+Painter::Painter(Window &pantalla, BoardGrid board): pantalla(&pantalla), board(board) {
     
 }
 

@@ -19,7 +19,7 @@
 
 class Painter {
 public:
-    Painter(Window &pantalla, Board board);
+    Painter(Window &pantalla, BoardGrid board);
     Painter(const Painter& orig);
     virtual ~Painter();
     
@@ -34,13 +34,13 @@ public:
     void paintBoardNext();
     void paintInterface(Score &score);
     
-    inline Board getMeassureBoardNextShape() const {
+    inline BoardGrid getMeassureBoardNextShape() const {
         return meassureBoardNextShape;
     }
     
 private:
     Window* pantalla;
-    Board board;
+    BoardGrid board;
     
     //position where score will be draw
     int xInitScore;
@@ -60,7 +60,7 @@ private:
     /**
      * Position board next shape
      */
-    Board meassureBoardNextShape;
+    BoardGrid meassureBoardNextShape;
     
     /**
      * Textures ("images") of the text that will be draw

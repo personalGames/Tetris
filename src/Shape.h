@@ -151,7 +151,7 @@ public:
      * @param board the measure of the board
      * @param image the image of the squares
      */
-    void setGraphics(Board &board, sf::Texture *image);
+    void setGraphics(BoardGrid &board, sf::Texture *image);
     
     
     

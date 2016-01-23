@@ -11,8 +11,6 @@
 enum class TypeSquare{
     NoSquare,
     Square,
-    SquareAnimation,
-    AnimalSquare
 };
 
 #endif	/* TYPESQUARE_H */

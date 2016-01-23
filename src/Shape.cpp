@@ -150,7 +150,7 @@ void Shape::clearCommandsFinished() {
     }
 }
 
-void Shape::setGraphics(Board &board, sf::Texture *image) {
+void Shape::setGraphics(BoardGrid &board, sf::Texture *image) {
     int i = 0;
     //set the data to every square
     while (i < numberSquares) {

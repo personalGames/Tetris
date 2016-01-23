@@ -35,25 +35,18 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/AnimatedSprite.o \
-	${OBJECTDIR}/src/Animation.o \
-	${OBJECTDIR}/src/Bomb.o \
-	${OBJECTDIR}/src/Building.o \
 	${OBJECTDIR}/src/Command.o \
-	${OBJECTDIR}/src/Complaint.o \
 	${OBJECTDIR}/src/EmptySquare.o \
 	${OBJECTDIR}/src/EventManager.o \
 	${OBJECTDIR}/src/Fall.o \
 	${OBJECTDIR}/src/FallEvent.o \
 	${OBJECTDIR}/src/FallToGround.o \
-	${OBJECTDIR}/src/Food.o \
 	${OBJECTDIR}/src/Game.o \
 	${OBJECTDIR}/src/IShape.o \
 	${OBJECTDIR}/src/ImagesManager.o \
 	${OBJECTDIR}/src/JShape.o \
 	${OBJECTDIR}/src/LShape.o \
 	${OBJECTDIR}/src/LeftRight.o \
-	${OBJECTDIR}/src/LevelGenerator.o \
 	${OBJECTDIR}/src/OShape.o \
 	${OBJECTDIR}/src/Painter.o \
 	${OBJECTDIR}/src/RemoveCompletedLines.o \
@@ -61,10 +54,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/SShape.o \
 	${OBJECTDIR}/src/Score.o \
 	${OBJECTDIR}/src/Shape.o \
-	${OBJECTDIR}/src/SpecialShape.o \
 	${OBJECTDIR}/src/Square.o \
-	${OBJECTDIR}/src/SquareAnimal.o \
-	${OBJECTDIR}/src/SquareAnimation.o \
 	${OBJECTDIR}/src/TShape.o \
 	${OBJECTDIR}/src/TableBoard.o \
 	${OBJECTDIR}/src/Timer.o \
@@ -93,41 +83,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris-second-try
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris-second-try: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris-second-try ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/src/AnimatedSprite.o: src/AnimatedSprite.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/AnimatedSprite.o src/AnimatedSprite.cpp
-
-${OBJECTDIR}/src/Animation.o: src/Animation.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Animation.o src/Animation.cpp
-
-${OBJECTDIR}/src/Bomb.o: src/Bomb.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Bomb.o src/Bomb.cpp
-
-${OBJECTDIR}/src/Building.o: src/Building.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Building.o src/Building.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/src/Command.o: src/Command.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Command.o src/Command.cpp
-
-${OBJECTDIR}/src/Complaint.o: src/Complaint.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Complaint.o src/Complaint.cpp
 
 ${OBJECTDIR}/src/EmptySquare.o: src/EmptySquare.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -153,11 +118,6 @@ ${OBJECTDIR}/src/FallToGround.o: src/FallToGround.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FallToGround.o src/FallToGround.cpp
-
-${OBJECTDIR}/src/Food.o: src/Food.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Food.o src/Food.cpp
 
 ${OBJECTDIR}/src/Game.o: src/Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -188,11 +148,6 @@ ${OBJECTDIR}/src/LeftRight.o: src/LeftRight.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/LeftRight.o src/LeftRight.cpp
-
-${OBJECTDIR}/src/LevelGenerator.o: src/LevelGenerator.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/LevelGenerator.o src/LevelGenerator.cpp
 
 ${OBJECTDIR}/src/OShape.o: src/OShape.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -229,25 +184,10 @@ ${OBJECTDIR}/src/Shape.o: src/Shape.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Shape.o src/Shape.cpp
 
-${OBJECTDIR}/src/SpecialShape.o: src/SpecialShape.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/SpecialShape.o src/SpecialShape.cpp
-
 ${OBJECTDIR}/src/Square.o: src/Square.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Square.o src/Square.cpp
-
-${OBJECTDIR}/src/SquareAnimal.o: src/SquareAnimal.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/SquareAnimal.o src/SquareAnimal.cpp
-
-${OBJECTDIR}/src/SquareAnimation.o: src/SquareAnimation.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/SquareAnimation.o src/SquareAnimation.cpp
 
 ${OBJECTDIR}/src/TShape.o: src/TShape.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -295,7 +235,7 @@ ${OBJECTDIR}/src/tinyxml2.o: src/tinyxml2.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris-second-try
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tetris
 
 # Subprojects
 .clean-subprojects:

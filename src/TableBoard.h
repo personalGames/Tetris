@@ -59,7 +59,7 @@ public:
         return numberRows;
     }
 
-    inline Board getMeassureBoard() const {
+    inline BoardGrid getMeassureBoard() const {
         return meassureBoard;
     }
     
@@ -188,7 +188,7 @@ private:
     static const int DEFAULT_COLUMNS = 10;
     int numberRows;
     int numberColumns;
-    Board meassureBoard;
+    BoardGrid meassureBoard;
 
     /**
      * Table of the board, store 1 if there's any square on it, 0 otherwise
