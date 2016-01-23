@@ -79,14 +79,6 @@ public:
         return shapes;
     }
 
-    /**
-     * Get the more special shapes
-     * @return special shapes
-     */
-    inline const list<Shape*>& getSpecialShapes() const{
-        return specialShapes;
-    }
-    
     void clearAllShapes();
 
     /**
@@ -97,14 +89,6 @@ public:
      */
     bool addShape(Shape* shape);
 
-    /**
-     * Add a special shape to the board.
-     * @param shape the special shape
-     */
-    inline void addSpecialShape(Shape &shape) {
-        specialShapes.push_back(&shape);
-    }
-    
     inline void addCommand(Command* command) {
         commands.push_back(command);
     }
@@ -170,8 +154,6 @@ public:
     void clearShapes();
     
     void executeShapes();
-    
-    void executeSpecialShapes();
     
     void cleanCommandShapes();
     

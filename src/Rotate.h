@@ -15,6 +15,7 @@
 #include "TableBoard.h"
 #include <algorithm>
 #include <memory>
+#include <SFML/Audio.hpp>
 
 class Rotate :public Command {
 public:
@@ -23,6 +24,7 @@ public:
     virtual ~Rotate();
     
     void execute();
+    bool isAlive() const;
     
 private:
     /**
@@ -33,6 +35,12 @@ private:
      * the shape involucred
      */
     Shape* shape;
+    
+    sf::SoundBuffer notRotatedBuffer;
+    sf::Sound notRotatedSound;
+    
+    sf::SoundBuffer rotatedBuffer;
+    sf::Sound rotatedSound;
 };
 
 #endif	/* ROTATE_H */

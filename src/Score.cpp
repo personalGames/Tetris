@@ -7,6 +7,7 @@
 
 #include "Score.h"
 #include <cmath>
+#include <SFML/Audio/Sound.hpp>
 
 Score::Score() {
     score = 0;
@@ -15,6 +16,21 @@ Score::Score() {
     linesNextLevel = 0;
     nextLevel = 0;
     calculateVelocity();
+    
+    if(levelUpSound.loadFromFile("resources/audio/SFX_LevelUp.ogg")){
+        levelUp.setVolume(20);
+        levelUp.setBuffer(levelUpSound);
+    }
+    
+    if(wonderfulSound.loadFromFile("resources/audio/VO_WONDRFL.ogg")){
+        wonderful.setVolume(100);
+        wonderful.setBuffer(wonderfulSound);
+    }
+    
+    if(amazingSound.loadFromFile("resources/audio/VO_AMAZING.ogg")){
+        amazing.setVolume(100);
+        amazing.setBuffer(amazingSound);
+    }
 }
 
 Score::Score(const Score& orig) {
@@ -28,7 +44,7 @@ Score::Score(const Score& orig) {
 }
 
 Score::~Score() {
-
+    
 }
 
 
@@ -37,15 +53,18 @@ void Score::incrementLine(int x) {
     switch(x){
         case 1:
             plus=40;
+            
             break;
         case 2:
             plus=100;
             break;
         case 3:
             plus=300;
+            amazing.play();
             break;
         default:
             plus=1200;
+            wonderful.play();
             break;
     }
     lines+=x;
@@ -56,6 +75,8 @@ void Score::incrementLine(int x) {
 
     while (linesNextLevel >= 10) {
         level++;
+        //sound!
+        levelUp.play();
         //otras consecuencias, subir velocidad, dificultad...
         calculateVelocity();
         calculateNextLevel();

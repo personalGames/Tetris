@@ -72,18 +72,7 @@ public:
     }
 
     inline void setPaused(bool paused) {
-        if(!paused){
-            paintedPause=false;
-        }
         this->paused = paused;
-    }
-    
-    inline bool isPaintedPause() const {
-        return paintedPause;
-    }
-    
-    inline bool isPaintedGameOver() const {
-        return paintedGameOver;
     }
     
 
@@ -104,7 +93,7 @@ private:
     /**
      * The score of the game
      */
-    Score score;
+    Score* score;
     /**
      * The window itself
      */
@@ -132,16 +121,13 @@ private:
     bool inTitle;
     TitleScene title;
     
+    sf::Music background;
+    sf::SoundBuffer titleSoundBuffer;
+    sf::Sound titleSound;
+    sf::SoundBuffer gameOverBuffer;
+    sf::Sound gameOverSound;
     
-
-    /**
-     * Determined if the message paused is draw
-     */
-    bool paintedPause;
-    /**
-     * Determined if the message game over is draw
-     */
-    bool paintedGameOver;
+    
     
     /**
      * Position of new shapes
@@ -165,6 +151,8 @@ private:
      * Prepare the next shape
      */
     void nextShapeFall();
+    
+    void loadSounds();
 
     
     void logicGame();
@@ -186,14 +174,7 @@ private:
     void setGameOver(bool gameOver) {
         this->gameOver = gameOver;
     }
-    
-    void setPaintedGameOver(bool paintedGameOver) {
-        this->paintedGameOver = paintedGameOver;
-    }
-    
-    inline void setPaintedPause(bool paintedPause) {
-        this->paintedPause = paintedPause;
-    }
+
 };
 
 

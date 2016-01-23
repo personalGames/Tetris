@@ -1,7 +1,0 @@
-<animation>
-	<num_frames v='3' />
-	<size_frame x='32' y='32' />
-	<num_columns v='3' />
-	<num_rows v='1' />
-	<image v='resources/animations/animals/images/panda.png' />
-</animation>

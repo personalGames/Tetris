@@ -4,18 +4,21 @@
 Game::Game() : title() {
     /* initialize random seed: */
     srand(time(NULL));
+    score = nullptr;
     letsQuit = false;
     shapeFalling = nullptr;
     nextShape = nullptr;
     board = TableBoard(pantalla.getWindow(), 20, 10);
-    score = Score();
+    if (score != nullptr) {
+        delete score;
+        score = nullptr;
+    }
+    score = new Score();
     ImagesManager::getInstance().loadImagesAnimations();
 
     setEventsGame();
 
     inTitle = true;
-    paintedGameOver = false;
-    paintedPause = false;
     paused = false;
     gameOver = false;
     animation = false;
@@ -24,6 +27,26 @@ Game::Game() : title() {
     //position where new shapes will appear
     xPosition = (int) board.getNumberColumns() / 2;
     xPosition -= 1;
+
+    //prepare music
+    loadSounds();
+}
+
+void Game::loadSounds() {
+    if (background.openFromFile("resources/audio/background.ogg")) {
+        background.setVolume(10);
+        background.setLoop(true);
+    }
+
+    if (titleSoundBuffer.loadFromFile("resources/audio/SFX_Splash.ogg")) {
+        titleSound.setBuffer(titleSoundBuffer);
+        titleSound.setVolume(25);
+        titleSound.play();
+    }
+    if (gameOverBuffer.loadFromFile("resources/audio/SFX_GameOver.ogg")) {
+        gameOverSound.setVolume(35);
+        gameOverSound.setBuffer(gameOverBuffer);
+    }
 }
 
 Game::Game(const Game &orig) {
@@ -36,8 +59,6 @@ Game::Game(const Game &orig) {
     score = orig.score;
     ImagesManager::getInstance().loadImagesAnimations();
     setEventsGame();
-    paintedPause = orig.paintedPause;
-    paintedGameOver = orig.paintedGameOver;
     paused = orig.paused;
     gameOver = orig.gameOver;
     animation = orig.animation;
@@ -50,7 +71,7 @@ Game::~Game() {
 }
 
 void Game::setEventsGame() {
-    Command* comando = new RemoveCompletedLines(board, score);
+    Command* comando = new RemoveCompletedLines(board, *score);
     board.addCommand(comando);
 }
 
@@ -67,25 +88,35 @@ void Game::startGame() {
     while (!letsQuit) {
         if (inTitle) {
             title.draw(pantalla.getRenderer());
-            pantalla.actualizar();
-        } else if (isPaused()) {
-            paintPauseMessage();
-        } else if (isGameOver()) {
-            if (!over.isRunning()) {
-                over.start();
-            } else if (over.delta() > 5000) {
-                inTitle = true;
-                gameOver = false;
-            }
-            paintGameOver();
+
         } else {
             //limpio la pantalla
             pantalla.clear();
-            if (!isAnimation()) {
+            if (!isAnimation() && !(isPaused() || isGameOver())) {
                 logicGame();
             }
             paintProcessGame();
         }
+
+        if (isPaused()) {
+            paintPauseMessage();
+        } else if (isGameOver()) {
+            if (!over.isRunning()) {
+                over.start();
+                background.stop();
+                gameOverSound.play();
+            } else if (over.delta() > 5000) {
+                inTitle = true;
+                gameOver = false;
+                gameOverSound.stop();
+                titleSound.play();
+            }
+            paintGameOver();
+        }
+        //actualizo la pantalla
+        pantalla.actualizar();
+
+
         //Consultamos los eventos
         while (pantalla.getRenderer()->pollEvent(evento)) {
             keyEvent(evento);
@@ -99,8 +130,8 @@ void Game::startGame() {
          * 1/60 *100 salen a unos 16 milisegundos para cada frame
          * Si no cumple el tiempo, espera un poco
          */
-        if (timer.delta() < 16) {
-            sf::sleep(sf::milliseconds(16 - timer.delta()));
+        if (timer.delta() < 33) {
+            sf::sleep(sf::milliseconds(33 - timer.delta()));
         }
         timer.reset();
     }
@@ -113,14 +144,21 @@ void Game::resetGame() {
     shapeFalling = nullptr;
     nextShape = nullptr;
     board = TableBoard(pantalla.getWindow(), 20, 10);
-    score = Score();
+    if (score != nullptr) {
+        delete score;
+        score = nullptr;
+    }
+    score = new Score();
     setEventsGame();
-    paintedPause = false;
     paused = false;
     gameOver = false;
     animation = false;
     //preparo next shape
     nextShapeFall();
+
+    //start music
+    titleSound.stop();
+    background.play();
 }
 
 void Game::logicGame() {
@@ -134,7 +172,6 @@ void Game::logicGame() {
 
     //ejecuto y limpio los del resto del board si hubiera
     board.executeShapes();
-    board.executeSpecialShapes();
 
 
     //borro shapes del board que ya estén totalmente eliminados
@@ -201,9 +238,15 @@ void Game::keyEvent(sf::Event &evento) {
 
             case sf::Keyboard::Escape:
                 if (inTitle) {
+                    titleSound.stop();
                     exit(0);
                 } else {
                     inTitle = true;
+                    paused = false;
+                    gameOver = false;
+                    background.stop();
+                    gameOverSound.stop();
+                    titleSound.play();
                 }
 
             default:
@@ -223,29 +266,24 @@ void Game::paintProcessGame() {
     //pinto las lineas del tablero
     board.drawLines(pantalla.getRenderer());
     //pinto la interfaz
-    painter->paintInterface(score);
-    //actualizo la pantalla
-    pantalla.actualizar();
+    painter->paintInterface(*score);
+
 }
 
 void Game::paintGameOver() {
-    if (!isPaintedGameOver()) {
-        painter->paintGameOver();
-        setPaintedGameOver(true);
+    painter->paintGameOver();
 
-        //actualizo la pantalla
-        pantalla.actualizar();
-    }
+    //actualizo la pantalla
+    pantalla.actualizar();
+
 }
 
 void Game::paintPauseMessage() {
-    if (!isPaintedPause()) {
-        painter->paintPauseMessage();
-        setPaintedPause(true);
+    painter->paintPauseMessage();
 
-        //actualizo la pantalla
-        pantalla.actualizar();
-    }
+    //actualizo la pantalla
+    pantalla.actualizar();
+
 }
 
 void Game::newShape() {
@@ -281,7 +319,7 @@ void Game::newShape() {
         //prepare the next shape
         nextShapeFall();
         //create the command that moves the shape to the ground
-        Command* command = new Fall(board, *shapeFalling, score.getVelocity());
+        Command* command = new Fall(board, *shapeFalling, score->getVelocity());
         shapeFalling->addCommand(command);
 
     }

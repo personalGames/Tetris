@@ -1,7 +1,0 @@
-<animation>
-	<num_frames v='19' />
-	<size_frame x='64' y='64' />
-	<num_columns v='8' />
-	<num_rows v='3' />
-	<image v='resources/animations/explosions/images/explosion.png' />
-</animation>

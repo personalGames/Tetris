@@ -24,6 +24,7 @@ public:
     RemoveCompletedLines(const RemoveCompletedLines& orig);
     virtual ~RemoveCompletedLines();
     
+    bool isAlive() const;
     void execute();
 private:
     /**
@@ -45,6 +46,10 @@ private:
      * @param lines a vector of the lines of the board to be removed
      */
     void removeLines(vector<int> &lines);
+    
+    
+    sf::SoundBuffer removeSoundBuffer;
+    sf::Sound removeSound;
     
 };
 

@@ -27,7 +27,7 @@ public:
      * If an action or command has been executed, the command is "dead"
      * @return true if can execute, false if has already been executed
      */
-    inline bool isAlive(){
+    inline virtual bool isAlive() const{
         return alive;
     }
     

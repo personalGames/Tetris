@@ -8,6 +8,14 @@
 #include "Rotate.h"
 
 Rotate::Rotate(TableBoard &board, Shape &shape) : Command(), board(&board), shape(&shape) {
+    if(notRotatedBuffer.loadFromFile("resources/audio/SFX_PieceRotateFail.ogg")){
+        notRotatedSound.setVolume(35);
+        notRotatedSound.setBuffer(notRotatedBuffer);
+    }
+    if(rotatedBuffer.loadFromFile("resources/audio/SFX_PieceRotateLR.ogg")){
+        rotatedSound.setVolume(35);
+        rotatedSound.setBuffer(rotatedBuffer);
+    }
 }
 
 Rotate::Rotate(const Rotate& orig) : Command(orig) {
@@ -20,7 +28,7 @@ Rotate::~Rotate() {
 
 void Rotate::execute() {
     //if is alive and can fall...
-    if (isAlive() && shape->isCanFall()) {
+    if (alive && shape->isCanFall()) {
         bool canMove = true;
         //get the result of rotating the shape (whitout really moving)
         vector<Square*> squares = shape->nextRotate();
@@ -44,13 +52,20 @@ void Rotate::execute() {
 
         //if we can move, move it definitively
         if (canMove) {
+            rotatedSound.play();
             shape->rotate();
             //update the board
             board->updateBoard();
+        }else{
+            notRotatedSound.play();
         }
         
         std::for_each(squares.begin(), squares.end(), std::default_delete<Square>());
 
     }
     alive = false;
+}
+
+bool Rotate::isAlive() const {
+    return alive || rotatedSound.getStatus()==sf::Sound::Status::Playing || notRotatedSound.getStatus()==sf::Sound::Status::Playing;
 }

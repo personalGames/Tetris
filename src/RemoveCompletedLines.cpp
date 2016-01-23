@@ -9,6 +9,10 @@
 
 RemoveCompletedLines::RemoveCompletedLines(TableBoard& board, Score& score)
 : Command(), board(&board), score(&score) {
+    if(removeSoundBuffer.loadFromFile("resources/audio/SFX_SpecialLineClearTriple.ogg")){
+        removeSound.setVolume(40);
+        removeSound.setBuffer(removeSoundBuffer);
+    }
 }
 
 RemoveCompletedLines::RemoveCompletedLines(const RemoveCompletedLines& orig) {
@@ -51,6 +55,8 @@ void RemoveCompletedLines::execute() {
         board->updateBoard();
         //update the score
         score->incrementLine(linesFilled.size());
+        //remove sound
+        removeSound.play();
     }
 }
 
@@ -101,7 +107,7 @@ void RemoveCompletedLines::removeLines(vector<int> &lines) {
 
         vector<int>::iterator it;
         //for every square, checks if is in the line to be removed
-        for (int i = 0; i < listSquares.size(); i++) {
+        for (unsigned int i = 0; i < listSquares.size(); i++) {
             Square* square=listSquares[i];
             it = find(lines.begin(), lines.end(), square->getY());
             if (it != lines.end()) {
@@ -110,4 +116,8 @@ void RemoveCompletedLines::removeLines(vector<int> &lines) {
             }
         }
     }
+}
+
+bool RemoveCompletedLines::isAlive() const {
+    return alive || removeSound.getStatus()==sf::Sound::Status::Playing;
 }

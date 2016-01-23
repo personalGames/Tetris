@@ -9,6 +9,7 @@
 #define	SCORE_H
 
 #include <iostream>
+#include <SFML/Audio.hpp>
 
 class Score {
 public:
@@ -42,6 +43,15 @@ private:
     int level;
     int nextLevel;
     int velocity;
+    
+    sf::SoundBuffer levelUpSound;
+    sf::Sound levelUp;
+    
+    sf::SoundBuffer amazingSound;
+    sf::Sound amazing;
+    
+    sf::SoundBuffer wonderfulSound;
+    sf::Sound wonderful;
     
     inline void incrementLevel(int x){
         level+=x;

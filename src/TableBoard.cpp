@@ -199,13 +199,6 @@ void TableBoard::executeShapes() {
     }
 }
 
-void TableBoard::executeSpecialShapes() {
-    for (list<Shape*>::iterator it = shapes.begin(); it != shapes.end(); it++) {
-        Shape* actualShape = (*it);
-        actualShape->executeCommands();
-    }
-}
-
 void TableBoard::cleanCommandShapes() {
     for (list<Shape*>::iterator it = shapes.begin(); it != shapes.end(); it++) {
         Shape* actualShape = (*it);
