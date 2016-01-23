@@ -20,6 +20,7 @@
 #include "ImagesManager.h"
 #include "ImportsShapes.h"
 #include "Painter.h"
+#include "TitleScene.h"
 
 #include <SFML/Audio.hpp>
 #include <SFML/Config.hpp>
@@ -84,6 +85,7 @@ public:
     inline bool isPaintedGameOver() const {
         return paintedGameOver;
     }
+    
 
 
 private:
@@ -127,7 +129,8 @@ private:
      */
     Painter* painter;
     
-    bool special;
+    bool inTitle;
+    TitleScene title;
     
     
 
@@ -162,18 +165,7 @@ private:
      * Prepare the next shape
      */
     void nextShapeFall();
-    /**
-     * Prepare the images that will be used
-     */
-    void prepareImages();
-    /**
-     * Draw the interface of the game
-     */
-    void paintInterface();
-    /**
-     * Prepare the elements of the game interface
-     */
-    void prepareInterface();
+
     
     void logicGame();
     

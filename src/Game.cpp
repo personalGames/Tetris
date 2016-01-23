@@ -1,7 +1,7 @@
 
 #include "Game.h"
 
-Game::Game() {
+Game::Game() : title() {
     /* initialize random seed: */
     srand(time(NULL));
     letsQuit = false;
@@ -10,21 +10,20 @@ Game::Game() {
     board = TableBoard(pantalla.getWindow(), 20, 10);
     score = Score();
     ImagesManager::getInstance().loadImagesAnimations();
-    
-    
+
     setEventsGame();
-    
-    paintedGameOver=false;
+
+    inTitle = true;
+    paintedGameOver = false;
     paintedPause = false;
     paused = false;
     gameOver = false;
     animation = false;
-    painter=new Painter(pantalla, board.getMeassureBoard());
+    painter = new Painter(pantalla, board.getMeassureBoard());
     painter->prepareInterface();
     //position where new shapes will appear
     xPosition = (int) board.getNumberColumns() / 2;
     xPosition -= 1;
-    special=false;
 }
 
 Game::Game(const Game &orig) {
@@ -38,21 +37,20 @@ Game::Game(const Game &orig) {
     ImagesManager::getInstance().loadImagesAnimations();
     setEventsGame();
     paintedPause = orig.paintedPause;
-    paintedGameOver=orig.paintedGameOver;
+    paintedGameOver = orig.paintedGameOver;
     paused = orig.paused;
     gameOver = orig.gameOver;
     animation = orig.animation;
-    painter=orig.painter;
+    painter = orig.painter;
     //position where new shapes will appear
     xPosition = orig.xPosition;
-    special=orig.special;
 }
 
 Game::~Game() {
 }
 
-void Game::setEventsGame(){
-    Command* comando= new RemoveCompletedLines(board, score);
+void Game::setEventsGame() {
+    Command* comando = new RemoveCompletedLines(board, score);
     board.addCommand(comando);
 }
 
@@ -62,13 +60,23 @@ void Game::startGame() {
     nextShapeFall();
     //preparo timer
     Timer timer{};
+    Timer over{};
     timer.start();
     //preparo shape
     newShape();
     while (!letsQuit) {
-        if (isPaused()) {
+        if (inTitle) {
+            title.draw(pantalla.getRenderer());
+            pantalla.actualizar();
+        } else if (isPaused()) {
             paintPauseMessage();
         } else if (isGameOver()) {
+            if (!over.isRunning()) {
+                over.start();
+            } else if (over.delta() > 5000) {
+                inTitle = true;
+                gameOver = false;
+            }
             paintGameOver();
         } else {
             //limpio la pantalla
@@ -101,7 +109,7 @@ void Game::startGame() {
 void Game::resetGame() {
     delete shapeFalling;
     delete nextShape;
-    
+
     shapeFalling = nullptr;
     nextShape = nullptr;
     board = TableBoard(pantalla.getWindow(), 20, 10);
@@ -119,20 +127,20 @@ void Game::logicGame() {
     //ejecuto los comandos de la board
     board.executeCommands();
     board.clearCommands();
-    
+
     //ejecuto y limpio comandos del shape cayendo
     shapeFalling->executeCommands();
     shapeFalling->clearCommandsFinished();
-    
+
     //ejecuto y limpio los del resto del board si hubiera
     board.executeShapes();
     board.executeSpecialShapes();
-    
-    
+
+
     //borro shapes del board que ya estén totalmente eliminados
     board.clearAllShapes();
     board.cleanCommandShapes();
-    
+
 }
 
 void Game::keyEvent(sf::Event &evento) {
@@ -142,6 +150,11 @@ void Game::keyEvent(sf::Event &evento) {
     }
     if (evento.type == sf::Event::KeyPressed) {
         sf::Keyboard::Key key = evento.key.code;
+        if (inTitle && key != sf::Keyboard::Escape) {
+            inTitle = false;
+            resetGame();
+            return;
+        }
         Command* command = nullptr;
         switch (key) {
             case sf::Keyboard::P:
@@ -187,8 +200,12 @@ void Game::keyEvent(sf::Event &evento) {
                 break;
 
             case sf::Keyboard::Escape:
-                exit(0);
-                
+                if (inTitle) {
+                    exit(0);
+                } else {
+                    inTitle = true;
+                }
+
             default:
                 return;
 
@@ -235,40 +252,38 @@ void Game::newShape() {
     //if needed of a shape...
     if (shapeFalling == nullptr || shapeFalling->isCanFall() == false) {
         //if the last shape was not null, store in the game board
-        if (shapeFalling != nullptr && special==false) {
+        if (shapeFalling != nullptr) {
             board.addShape(shapeFalling);
         }
 
-    
-            special=false;
-            //get the next shape
-            shapeFalling = nextShape;
-            //random a state for the shape and rotate it
-            int initialState = rand() % 20;
-            initialState = initialState % shapeFalling->getNUMBER_OF_STATES();
-            while (initialState > 0) {
-                shapeFalling->rotate();
-                initialState--;
-            }
+        //get the next shape
+        shapeFalling = nextShape;
+        //random a state for the shape and rotate it
+        int initialState = rand() % 20;
+        initialState = initialState % shapeFalling->getNUMBER_OF_STATES();
+        while (initialState > 0) {
+            shapeFalling->rotate();
+            initialState--;
+        }
 
 
-            //set the right graphics for the shape
-            BoardGrid meassureBoard = board.getMeassureBoard();
-            shapeFalling->setGraphics(meassureBoard, nullptr);
-            //undo the position of the square when was created in nextShapeFall())
-            shapeFalling->incrementSquare(xPosition - 2 + 2, -1);
-            //check if have space 
-            if (board.isFilled(shapeFalling)!=TypeSquare::NoSquare) {
-                //end of game
-                setGameOver(true);
-            }
+        //set the right graphics for the shape
+        BoardGrid meassureBoard = board.getMeassureBoard();
+        shapeFalling->setGraphics(meassureBoard, nullptr);
+        //undo the position of the square when was created in nextShapeFall())
+        shapeFalling->incrementSquare(xPosition - 2 + 2, -1);
+        //check if have space 
+        if (board.isFilled(shapeFalling) != TypeSquare::NoSquare) {
+            //end of game
+            setGameOver(true);
+        }
 
-            //prepare the next shape
-            nextShapeFall();
-            //create the command that moves the shape to the ground
-            Command* command = new Fall(board, *shapeFalling, score.getVelocity());
-            shapeFalling->addCommand(command);
-        
+        //prepare the next shape
+        nextShapeFall();
+        //create the command that moves the shape to the ground
+        Command* command = new Fall(board, *shapeFalling, score.getVelocity());
+        shapeFalling->addCommand(command);
+
     }
 
 }
@@ -280,9 +295,9 @@ void Game::nextShapeFall() {
     Shapes shapeSelected = static_cast<Shapes> ((rand() % 100) % NUMBER_SHAPES);
     //set the graphics to the square
     sf::Texture* image = ImagesManager::getInstance().getImage(Images::Square);
-    BoardGrid meassureBoardNextShape=painter->getMeassureBoardNextShape();
+    BoardGrid meassureBoardNextShape = painter->getMeassureBoardNextShape();
     square->setGraphics(meassureBoardNextShape, image);
-    
+
     switch (shapeSelected) {
         case Shapes::O:
             nextShape = new OShape(*square);

@@ -58,6 +58,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/TShape.o \
 	${OBJECTDIR}/src/TableBoard.o \
 	${OBJECTDIR}/src/Timer.o \
+	${OBJECTDIR}/src/TitleScene.o \
 	${OBJECTDIR}/src/Window.o \
 	${OBJECTDIR}/src/ZShape.o \
 	${OBJECTDIR}/src/main.o \
@@ -203,6 +204,11 @@ ${OBJECTDIR}/src/Timer.o: src/Timer.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Timer.o src/Timer.cpp
+
+${OBJECTDIR}/src/TitleScene.o: src/TitleScene.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/TitleScene.o src/TitleScene.cpp
 
 ${OBJECTDIR}/src/Window.o: src/Window.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

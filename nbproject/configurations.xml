@@ -29,6 +29,7 @@
         <itemPath>src/Painter.h</itemPath>
         <itemPath>src/Score.h</itemPath>
         <itemPath>src/TableBoard.h</itemPath>
+        <itemPath>/home/dorian/Proyectos/Codigo/C++/Tetris/src/TitleScene.h</itemPath>
         <itemPath>src/Window.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7" displayName="Managers" projectFiles="true">
@@ -82,6 +83,7 @@
         <itemPath>src/Painter.cpp</itemPath>
         <itemPath>src/Score.cpp</itemPath>
         <itemPath>src/TableBoard.cpp</itemPath>
+        <itemPath>src/TitleScene.cpp</itemPath>
         <itemPath>src/Window.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f6" displayName="Managers" projectFiles="true">
@@ -150,6 +152,11 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="/home/dorian/Proyectos/Codigo/C++/Tetris/src/TitleScene.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/home/dorian/Proyectos/Codigo/C++/Tetris/src/TypeSquare.h"
             ex="false"
             tool="3"
@@ -260,6 +267,8 @@
       <item path="src/Timer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TitleScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/TypeEvents.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -300,6 +309,11 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/home/dorian/Proyectos/Codigo/C++/Tetris/src/TitleScene.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/home/dorian/Proyectos/Codigo/C++/Tetris/src/TypeSquare.h"
             ex="false"
             tool="3"
@@ -410,6 +424,8 @@
       <item path="src/Timer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/TitleScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/TypeEvents.h" ex="false" tool="3" flavor2="0">
       </item>

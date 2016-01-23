@@ -11,6 +11,8 @@ lineas al estilo tetris, se tienen otros elementos que ayudan.
 El juego está incompleto y con algún que otro bug. Tiene implementados 
 algunos objetos con algunas funciones y la crecida de los edificios.
 
+Los makefiles están desfasados, sin mantenimiento.
+
 ![Alt text](Tetris_091.png "Shape falling")
 ![Alt text](Tetris_092.png "Shape falling")
 ![Alt text](Tetris_093.png "Shape falling")

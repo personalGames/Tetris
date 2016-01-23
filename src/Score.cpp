@@ -11,7 +11,7 @@
 Score::Score() {
     score = 0;
     lines = 0;
-    level = 10;
+    level = 1;
     linesNextLevel = 0;
     nextLevel = 0;
     calculateVelocity();

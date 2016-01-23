@@ -58,6 +58,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/TShape.o \
 	${OBJECTDIR}/src/TableBoard.o \
 	${OBJECTDIR}/src/Timer.o \
+	${OBJECTDIR}/src/TitleScene.o \
 	${OBJECTDIR}/src/Window.o \
 	${OBJECTDIR}/src/ZShape.o \
 	${OBJECTDIR}/src/main.o \
@@ -203,6 +204,11 @@ ${OBJECTDIR}/src/Timer.o: nbproject/Makefile-${CND_CONF}.mk src/Timer.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Timer.o src/Timer.cpp
+
+${OBJECTDIR}/src/TitleScene.o: nbproject/Makefile-${CND_CONF}.mk src/TitleScene.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/TitleScene.o src/TitleScene.cpp
 
 ${OBJECTDIR}/src/Window.o: nbproject/Makefile-${CND_CONF}.mk src/Window.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

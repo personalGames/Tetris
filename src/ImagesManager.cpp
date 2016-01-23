@@ -30,7 +30,7 @@ void ImagesManager::loadImagesAnimations() {
 
 void ImagesManager::loadImages() {
     loadImagesFromFolder(Images::Square, "resources/images/squares");
-
+    loadImagesFromFolder(Images::Title, "resources/images/title");
     loaded = true;
 }
 

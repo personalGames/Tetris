@@ -10,10 +10,7 @@
 
 enum class Images{
     Square,
-    Bomb,
-    Maze,
-    Complaint,
-    Food
+    Title
 };
 
 

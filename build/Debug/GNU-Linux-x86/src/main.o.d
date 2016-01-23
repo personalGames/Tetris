@@ -4,8 +4,9 @@ build/Debug/GNU-Linux-x86/src/main.o: src/main.cpp src/Game.h \
  src/MeassureBoard.h src/TypeSquare.h src/EmptySquare.h src/Shape.h \
  src/Command.h src/OShape.h src/TShape.h src/IShape.h src/ZShape.h \
  src/SShape.h src/JShape.h src/Painter.h src/TableBoard.h src/Window.h \
- src/Timer.h src/Fall.h src/LeftRight.h src/FallToGround.h src/Rotate.h \
- src/RemoveCompletedLines.h src/FallEvent.h
+ src/TitleScene.h src/Timer.h src/Fall.h src/LeftRight.h \
+ src/FallToGround.h src/Rotate.h src/RemoveCompletedLines.h \
+ src/FallEvent.h
 
 src/Game.h:
 
@@ -54,6 +55,8 @@ src/Painter.h:
 src/TableBoard.h:
 
 src/Window.h:
+
+src/TitleScene.h:
 
 src/Timer.h:
 

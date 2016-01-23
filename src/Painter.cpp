@@ -71,8 +71,7 @@ void Painter::prepareTextGameOver(){
     textureTextGameOver= new sf::Text();
     textureTextGameOver->setFont(*(pantalla->getFont()));
     textureTextGameOver->setColor(sf::Color::White);
-    textureTextGameOver->setString(L"¡Ha perdido! :(\n"
-    "R para nueva partida");
+    textureTextGameOver->setString(L"¡Ha perdido! :( \n");
     textureTextGameOver->setCharacterSize(55);
     
     
@@ -97,7 +96,7 @@ void Painter::prepareTextInstructions(){
     textureTextInstructions->setFont(*(pantalla->getFont()));
     textureTextInstructions->setColor(sf::Color::White);
     textureTextInstructions->setString("P para pausar el juego\n"
-            "ESC para salir del juego\n"
+            "ESC para volver a inicio\n"
             "Espacio para girar la pieza\n"
             "Izq y Der para mover la pieza\n"
             "Abajo para bajar en uno la pieza");
