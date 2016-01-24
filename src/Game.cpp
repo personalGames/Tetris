@@ -88,7 +88,7 @@ void Game::startGame() {
     while (!letsQuit) {
         if (inTitle) {
             title.draw(pantalla.getRenderer());
-
+            over.stop();
         } else {
             //limpio la pantalla
             pantalla.clear();
@@ -107,6 +107,7 @@ void Game::startGame() {
                 gameOverSound.play();
             } else if (over.delta() > 5000) {
                 inTitle = true;
+                over.stop();
                 gameOver = false;
                 gameOverSound.stop();
                 titleSound.play();
