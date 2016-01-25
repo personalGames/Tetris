@@ -19,7 +19,7 @@ Shape::Shape(const Shape& orig) {
 }
 
 Shape::~Shape() {
-    for (int i = 0; i < squares.size(); i++) {
+    for (unsigned int i = 0; i < squares.size(); i++) {
         delete squares[i];
     }
     squares.clear();
@@ -107,7 +107,7 @@ vector<Square*> Shape::nextRotate() {
 
 vector<Square*> Shape::cloneSquares(vector<Square*> original) {
     vector<Square*> clone(original.size());
-    for (int i = 0; i < original.size(); i++) {
+    for (unsigned int i = 0; i < original.size(); i++) {
         clone[i] = original[i]->clone();
     }
     return clone;

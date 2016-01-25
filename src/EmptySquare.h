@@ -9,7 +9,6 @@
 #define	EMPTYSQUARE_H
 
 #include "Square.h"
-#include <SDL2/SDL.h>
 
 
 class EmptySquare : public Square {
@@ -26,12 +25,11 @@ public:
         y=-10;
     }
     virtual ~EmptySquare(){}
-    
-    inline void setGraphics(SDL_Texture &image){}
+ 
+	virtual void setImage(sf::Texture * image) {}
 
-    virtual inline void setImage(SDL_Texture &image) {
-        
-    }
+
+	virtual void paint(sf::RenderWindow* pLienzo) {}
 
     virtual inline void setX(int x) {
       
@@ -56,8 +54,6 @@ public:
     EmptySquare* clone() const {
         return new EmptySquare(*this);
     }
-    
-    void paint(SDL_Renderer* pLienzo){}
     
 private:
 

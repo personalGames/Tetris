@@ -46,10 +46,10 @@ void Square::paint(sf::RenderWindow* pLienzo) {
     if (image != nullptr) {
         sf::Sprite* sprite = new sf::Sprite();
         sprite->setTexture(*image);
-        sprite->setPosition(pointXBoard + x * sizeImage.width,
-                pointYBoard + y * sizeImage.height);
-        float scaleX = (sizeImage.width * 1.0) / ((image->getSize().x)*1.0);
-        float scaleY = (sizeImage.height * 1.0) / ((image->getSize().y)*1.0);
+        sprite->setPosition(static_cast<float>(pointXBoard + x * sizeImage.width),
+			static_cast<float>(pointYBoard + y * sizeImage.height));
+        float scaleX = (sizeImage.width * 1.0f) / ((image->getSize().x)*1.0f);
+        float scaleY = (sizeImage.height * 1.0f) / ((image->getSize().y)*1.0f);
         sprite->setScale(scaleX, scaleY);
 
         pLienzo->draw(*sprite);

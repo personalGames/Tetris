@@ -9,10 +9,22 @@
         <group name="Tetris"/>
         <group name="Tetris SDL"/>
         <group>
-            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Score.h</file>
-            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/main.cpp</file>
             <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Game.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/main.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Window.cpp</file>
             <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Score.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Score.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/mainTestShapes.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/SShape.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/TShape.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/ZShape.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/nbproject/private/private.xml</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/EmptySquare.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/EmptySquare.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Square.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/Square.h</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/TShape.cpp</file>
+            <file>file:/media/Datos/Proyectos/Codigo/C++/Tetris/src/ZShape.cpp</file>
         </group>
     </open-files>
 </project-private>

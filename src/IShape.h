@@ -8,7 +8,6 @@
 #ifndef ISHAPE_H
 #define	ISHAPE_H
 
-#include <SDL2/SDL_image.h>
 #include "Square.h"
 #include "EmptySquare.h"
 #include "Shape.h"

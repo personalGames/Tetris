@@ -47,7 +47,6 @@ public:
      * @param imagen the image
      * @param destino size and position of the image in the window
      */
-//    void copiarImagen(SDL_Texture* imagen, SDL_Rect destino);
     void copiarImagen(sf::Sprite &sprite);
     
 private:

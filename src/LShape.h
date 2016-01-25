@@ -8,7 +8,6 @@
 #ifndef LSHAPE_H
 #define	LSHAPE_H
 
-#include <SDL2/SDL_image.h>
 #include "Square.h"
 #include "EmptySquare.h"
 #include "Shape.h"
@@ -64,7 +63,6 @@ private:
      */
     static const int NUMBER_OF_SQUARES = 4;
 
-    SDL_Texture* image;
 
     /**
      * Coordinates to make the shape

@@ -14,6 +14,7 @@
 #include "Score.h"
 #include "Window.h"
 #include <sstream>
+#include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics.hpp>
 #include <string> // this should be already included in <sstream>
 

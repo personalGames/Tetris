@@ -8,7 +8,6 @@
 #ifndef OSHAPE_H
 #define	OSHAPE_H
 
-#include <SDL2/SDL_image.h>
 #include "Square.h"
 #include "EmptySquare.h"
 #include "Shape.h"
@@ -64,8 +63,6 @@ private:
      * The number of squaress of this shape
      */
     static const int NUMBER_OF_SQUARES=4;
-    
-    SDL_Texture* image;
     
     /**
      * Coordinates to make the shape

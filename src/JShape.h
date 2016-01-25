@@ -8,7 +8,6 @@
 #ifndef JSHAPE_H
 #define	JSHAPE_H
 
-#include <SDL2/SDL_image.h>
 #include "Square.h"
 #include "Shape.h"
 #include "EmptySquare.h"

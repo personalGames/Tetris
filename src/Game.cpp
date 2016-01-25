@@ -3,7 +3,7 @@
 
 Game::Game() : title() {
     /* initialize random seed: */
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
     score = nullptr;
     letsQuit = false;
     shapeFalling = nullptr;
@@ -51,7 +51,7 @@ void Game::loadSounds() {
 
 Game::Game(const Game &orig) {
     /* initialize random seed: */
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
     letsQuit = orig.letsQuit;
     shapeFalling = orig.shapeFalling;
     nextShape = orig.nextShape;

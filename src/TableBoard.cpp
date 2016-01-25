@@ -29,14 +29,14 @@ void TableBoard::initialiceParameters(const sf::IntRect &window, int rows, int c
     numberRows = rows;
 
     //establezco la altura
-    meassureBoard.heigthBoard = window.height - (window.height * 0.10);
+    meassureBoard.heigthBoard = window.height - static_cast<int>(window.height * 0.10);
 
     //establezco la anchura
     meassureBoard.widhtBoard = meassureBoard.heigthBoard / 2;
-    if (meassureBoard.widhtBoard >= (window.width - (window.width * 0.10))) {
-        meassureBoard.widhtBoard = window.width - (window.width * 0.10);
-    } else if (meassureBoard.widhtBoard < (meassureBoard.widhtBoard * 0.60)) {
-        meassureBoard.widhtBoard = window.width * 0.60;
+    if (meassureBoard.widhtBoard >= (window.width - static_cast<int>(window.width * 0.10))) {
+        meassureBoard.widhtBoard = window.width - static_cast<int>(window.width * 0.10);
+    } else if (meassureBoard.widhtBoard < static_cast<int>(meassureBoard.widhtBoard * 0.60)) {
+        meassureBoard.widhtBoard = static_cast<int>(window.width * 0.60);
     }
 
     //tamaño de una celda
@@ -50,7 +50,7 @@ void TableBoard::initialiceParameters(const sf::IntRect &window, int rows, int c
     //ancho real de la tabla
     meassureBoard.widhtBoard = meassureBoard.widthCell * columns;
     //inicio y
-    meassureBoard.initBoardY = meassureBoard.heigthBoard * 0.05;
+    meassureBoard.initBoardY = static_cast<int>(meassureBoard.heigthBoard * 0.05);
     //altura real de la tabla
     meassureBoard.heigthBoard = rows * meassureBoard.heigthCell;
 }
@@ -61,20 +61,20 @@ void TableBoard::drawLines(sf::RenderWindow* pLienzo) {
 
     for (int i = 0; i < numberColumns + 1; i++) {
         sf::Vertex line[] = {
-            sf::Vertex(sf::Vector2f(i * meassureBoard.widthCell + meassureBoard.initBoardX,
-            meassureBoard.initBoardY)),
-            sf::Vertex(sf::Vector2f(i * meassureBoard.widthCell + meassureBoard.initBoardX,
-            yFinal))
+            sf::Vertex(sf::Vector2f(static_cast<float>(i * meassureBoard.widthCell + meassureBoard.initBoardX),
+									static_cast<float>(meassureBoard.initBoardY))),
+            sf::Vertex(sf::Vector2f(static_cast<float>(i * meassureBoard.widthCell + meassureBoard.initBoardX),
+				static_cast<float>(yFinal)))
         };
         pLienzo->draw(line, 2, sf::Lines);
     }
 
     for (int i = 0; i < numberRows + 1; i++) {
         sf::Vertex line[] = {
-            sf::Vertex(sf::Vector2f(meassureBoard.initBoardX,
-            i * meassureBoard.heigthCell + meassureBoard.initBoardY)),
-            sf::Vertex(sf::Vector2f(xFinal,
-            i * meassureBoard.heigthCell + meassureBoard.initBoardY))
+            sf::Vertex(sf::Vector2f(static_cast<float>(meassureBoard.initBoardX),
+						static_cast<float>(i * meassureBoard.heigthCell + meassureBoard.initBoardY))),
+            sf::Vertex(sf::Vector2f(static_cast<float>(xFinal),
+				static_cast<float>(i * meassureBoard.heigthCell + meassureBoard.initBoardY)))
         };
         pLienzo->draw(line, 2, sf::Lines);
     }

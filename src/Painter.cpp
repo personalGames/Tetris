@@ -25,19 +25,19 @@ void Painter::prepareBoardNextShape(){
     int yWindow = pantalla->getWindow().height;
     
     //calculate position of text next shape
-    int yInitText = yWindow * 0.05;
-    int xInitText = widhtMarginLeft * 0.20;
+    int yInitText = static_cast<int>(yWindow * 0.05);
+    int xInitText = static_cast<int>(widhtMarginLeft * 0.20);
 
     textureTextNextShape=new sf::Text();
     textureTextNextShape->setFont(*(pantalla->getFont()));
     textureTextNextShape->setColor(sf::Color::White);
     textureTextNextShape->setString(L"Next Shape");
     textureTextNextShape->setCharacterSize(35);
-    textureTextNextShape->setPosition(xInitText-(xInitText*0.5), yInitText);
+    textureTextNextShape->setPosition(static_cast<float>(xInitText-(xInitText*0.5f)), static_cast<float>(yInitText));
     
     //calculate position of board for next shape
     meassureBoardNextShape.initBoardX = xInitText;
-    meassureBoardNextShape.initBoardY = yInitText + textureTextNextShape->getLocalBounds().height * 1.8;
+    meassureBoardNextShape.initBoardY = static_cast<int>(yInitText + textureTextNextShape->getLocalBounds().height * 1.8f);
   
 }
 
@@ -53,17 +53,17 @@ void Painter::prepareTextPause(){
     int xWindow = pantalla->getWindow().width;
     int yWindow = pantalla->getWindow().height;
     int xInitText = (xWindow / 4);
-    int yInitText = (yWindow / 2) - yWindow * 0.1;
-    int texW = textureTextPaused->getLocalBounds().width;
-    int texH = textureTextPaused->getLocalBounds().height;
+    int yInitText = static_cast<int>((yWindow / 2) - yWindow * 0.1);
+    int texW = static_cast<int>(textureTextPaused->getLocalBounds().width);
+    int texH = static_cast<int>(textureTextPaused->getLocalBounds().height);
     
-    textureTextPaused->setPosition(xInitText,yInitText);
+    textureTextPaused->setPosition(static_cast<float>(xInitText), static_cast<float>(yInitText));
     
     sizeRectanglePause.height = texH * 2;
-    sizeRectanglePause.width = texW + (texW * 0.3);
+    sizeRectanglePause.width = static_cast<int>(texW + (texW * 0.3));
     
-    sizeRectanglePause.left = xInitText - (texW * 0.1);
-    sizeRectanglePause.top = yInitText - (texH / 2);
+    sizeRectanglePause.left = static_cast<int>(xInitText - (texW * 0.1));
+    sizeRectanglePause.top = static_cast<int>(yInitText - (texH / 2));
 }
 
 void Painter::prepareTextGameOver(){
@@ -71,24 +71,24 @@ void Painter::prepareTextGameOver(){
     textureTextGameOver= new sf::Text();
     textureTextGameOver->setFont(*(pantalla->getFont()));
     textureTextGameOver->setColor(sf::Color::White);
-    textureTextGameOver->setString(L"¡Ha perdido! :( \n");
+    textureTextGameOver->setString(L"Ha perdido! :( \n");
     textureTextGameOver->setCharacterSize(55);
     
     
     int xWindow = pantalla->getWindow().width;
     int yWindow = pantalla->getWindow().height;
     int xInitText = (xWindow / 4);
-    int yInitText = (yWindow / 2) - yWindow * 0.1;
-    int texW = textureTextGameOver->getLocalBounds().width;
-    int texH = textureTextGameOver->getLocalBounds().height;
+    int yInitText = static_cast<int>((yWindow / 2) - yWindow * 0.1);
+    int texW = static_cast<int>(textureTextGameOver->getLocalBounds().width);
+    int texH = static_cast<int>(textureTextGameOver->getLocalBounds().height);
     
-    textureTextGameOver->setPosition(xInitText,yInitText);
+    textureTextGameOver->setPosition(static_cast<float>(xInitText), static_cast<float>(yInitText));
     
     sizeRectangleGameOver.height = texH * 2;
-    sizeRectangleGameOver.width = texW + (texW * 0.3);
+    sizeRectangleGameOver.width = static_cast<int>(texW + (texW * 0.3));
     
-    sizeRectangleGameOver.left = xInitText - (texW * 0.1);
-    sizeRectangleGameOver.top = yInitText - (texH / 2);
+    sizeRectangleGameOver.left = static_cast<int>(xInitText - (texW * 0.1));
+    sizeRectangleGameOver.top = static_cast<int>(yInitText - (texH / 2));
 }
 
 void Painter::prepareTextInstructions(){
@@ -105,33 +105,33 @@ void Painter::prepareTextInstructions(){
     int yInitText = 0;
     int xInitText = 0;
     int yWindow = pantalla->getWindow().height;
-    xInitText = widhtMarginLeft * 0.1;
+    xInitText = static_cast<int>(widhtMarginLeft * 0.1);
     yInitText = yWindow / 4 + yWindow / 2;
-    textureTextInstructions->setPosition(xInitText,yInitText);
+    textureTextInstructions->setPosition(static_cast<float>(xInitText), static_cast<float>(yInitText));
 }
 
 void Painter::prepareScores(){
     int xInitText=0;
     int yInitText=0;
     //calculate position of text score
-    xInitText = (widhtMarginRight * 0.20) + board.widhtBoard + widhtMarginLeft;
+    xInitText = static_cast<int>((widhtMarginRight * 0.20) + board.widhtBoard + widhtMarginLeft);
     textureTextScore= new sf::Text();
     textureTextScore->setFont(*(pantalla->getFont()));
     textureTextScore->setColor(sf::Color::White);
     textureTextScore->setString(L"Score");
     textureTextScore->setCharacterSize(30);
-    textureTextScore->setPosition(xInitText, yInitText+textureTextScore->getLocalBounds().height*1.5);
-    yInitText=yInitText+textureTextScore->getLocalBounds().height*1.8;
+    textureTextScore->setPosition(static_cast<float>(xInitText), static_cast<float>(yInitText+textureTextScore->getLocalBounds().height*1.5f));
+    yInitText=static_cast<int>(yInitText+textureTextScore->getLocalBounds().height*1.8);
     
     //calculate rectangle of score
     sizeRectangleScore.left = xInitText;
-    sizeRectangleScore.top = yInitText + textureTextScore->getLocalBounds().height * 1.5;
-    sizeRectangleScore.height = textureTextScore->getLocalBounds().height * 1.5;
-    sizeRectangleScore.width = widhtMarginRight - (widhtMarginRight * 0.4);
+    sizeRectangleScore.top = static_cast<int>(yInitText + textureTextScore->getLocalBounds().height * 1.5);
+    sizeRectangleScore.height = static_cast<int>(textureTextScore->getLocalBounds().height * 1.5);
+    sizeRectangleScore.width = static_cast<int>(widhtMarginRight - (widhtMarginRight * 0.4));
     
-    xInitScore = sizeRectangleScore.left + sizeRectangleScore.width * 0.1;
-    yInitScore = sizeRectangleScore.top + sizeRectangleScore.height * 0.03;
-    int separationBetweenSections = sizeRectangleScore.height + textureTextScore->getLocalBounds().height * 1.5;
+    xInitScore = static_cast<int>(sizeRectangleScore.left + sizeRectangleScore.width * 0.1);
+    yInitScore = static_cast<int>(sizeRectangleScore.top + sizeRectangleScore.height * 0.03);
+    int separationBetweenSections = static_cast<int>(sizeRectangleScore.height + textureTextScore->getLocalBounds().height * 1.5);
 
     //calculate position of text Level
     yInitText = yInitText + separationBetweenSections;
@@ -141,17 +141,17 @@ void Painter::prepareScores(){
     textureTextLevel->setColor(sf::Color::White);
     textureTextLevel->setString(L"Level");
     textureTextLevel->setCharacterSize(30);
-    textureTextLevel->setPosition(xInitText, yInitText + textureTextScore->getLocalBounds().height * 1.5);
+    textureTextLevel->setPosition(static_cast<float>(xInitText), static_cast<float>(yInitText + textureTextScore->getLocalBounds().height * 1.5f));
 
-    yInitText=yInitText+textureTextLevel->getLocalBounds().height*1.8;
+    yInitText= static_cast<int>(yInitText+textureTextLevel->getLocalBounds().height*1.8);
     //calculate rectangle of level
     sizeRectangleLevel.left = xInitText;
-    sizeRectangleLevel.top = yInitText + textureTextLevel->getLocalBounds().height * 1.5;
-    sizeRectangleLevel.height = textureTextLevel->getLocalBounds().height*1.5;
-    sizeRectangleLevel.width = widhtMarginRight - (widhtMarginRight * 0.4);
+    sizeRectangleLevel.top = static_cast<int>(yInitText + textureTextLevel->getLocalBounds().height * 1.5);
+    sizeRectangleLevel.height = static_cast<int>(textureTextLevel->getLocalBounds().height*1.5);
+    sizeRectangleLevel.width = static_cast<int>(widhtMarginRight - (widhtMarginRight * 0.4));
     
-    xInitLevel = sizeRectangleLevel.left + sizeRectangleLevel.width * 0.1;
-    yInitLevel = sizeRectangleLevel.top + sizeRectangleLevel.height * 0.03;
+    xInitLevel = static_cast<int>(sizeRectangleLevel.left + sizeRectangleLevel.width * 0.1);
+    yInitLevel = static_cast<int>(sizeRectangleLevel.top + sizeRectangleLevel.height * 0.03);
 
 
     //calculate position of text Lines
@@ -161,19 +161,19 @@ void Painter::prepareScores(){
     textureTextLines->setColor(sf::Color::White);
     textureTextLines->setString(L"Lines");
     textureTextLines->setCharacterSize(30);
-    textureTextLines->setPosition(xInitText, yInitText+textureTextScore->getLocalBounds().height*1.5);
+    textureTextLines->setPosition(static_cast<float>(xInitText), yInitText+textureTextScore->getLocalBounds().height*1.5f);
     
-    yInitText=yInitText+textureTextLines->getLocalBounds().height*1.8;
+    yInitText= static_cast<int>(yInitText+textureTextLines->getLocalBounds().height*1.8);
     //calculate rectangle of lines
     sizeRectangleLines.left = xInitText;
-    sizeRectangleLines.top = yInitText + textureTextLines->getLocalBounds().height * 1.5;
-    sizeRectangleLines.height = textureTextLines->getLocalBounds().height*1.5;
-    sizeRectangleLines.width = widhtMarginRight - (widhtMarginRight * 0.4);
+    sizeRectangleLines.top = static_cast<int>(yInitText + textureTextLines->getLocalBounds().height * 1.5);
+    sizeRectangleLines.height = static_cast<int>(textureTextLines->getLocalBounds().height*1.5);
+    sizeRectangleLines.width = static_cast<int>(widhtMarginRight - (widhtMarginRight * 0.4));
     
     
 
-    xInitLines = sizeRectangleLines.left + sizeRectangleLines.width * 0.1;
-    yInitLines = sizeRectangleLines.top + sizeRectangleLines.height * 0.03;
+    xInitLines = static_cast<int>(sizeRectangleLines.left + sizeRectangleLines.width * 0.1);
+    yInitLines = static_cast<int>(sizeRectangleLines.top + sizeRectangleLines.height * 0.03);
 }
 
 void Painter::prepareInterface(){
@@ -205,7 +205,7 @@ void Painter::paintScore(Score &score) {
     texture->setColor(sf::Color::White);
     texture->setString(convertedScore);
     texture->setCharacterSize(30);
-    texture->setPosition(xInitScore, yInitScore);
+    texture->setPosition(static_cast<float>(xInitScore), static_cast<float>(yInitScore));
     
     pantalla->getRenderer()->draw(*texture);
     delete texture;
@@ -226,7 +226,7 @@ void Painter::paintLevel(Score &score) {
     texture->setColor(sf::Color::White);
     texture->setString(convertedLevel);
     texture->setCharacterSize(30);
-    texture->setPosition(xInitLevel, yInitLevel);
+    texture->setPosition(static_cast<float>(xInitLevel), static_cast<float>(yInitLevel));
     
     pantalla->getRenderer()->draw(*texture);
     delete texture;
@@ -247,7 +247,7 @@ void Painter::paintLines(Score &score) {
     texture->setColor(sf::Color::White);
     texture->setString(convertedLines);
     texture->setCharacterSize(30);
-    texture->setPosition(xInitLines, yInitLines);
+    texture->setPosition(static_cast<float>(xInitLines), static_cast<float>(yInitLines));
     
     pantalla->getRenderer()->draw(*texture);
     delete texture;
@@ -255,9 +255,9 @@ void Painter::paintLines(Score &score) {
 
 void Painter::paintRectangle(sf::IntRect &rect, sf::Color &color) {
     sf::RectangleShape rectangle;
-    rectangle.setSize(sf::Vector2f(rect.width, rect.height));
+    rectangle.setSize(sf::Vector2f(static_cast<float>(rect.width), static_cast<float>(rect.height)));
     rectangle.setOutlineThickness(1);
-    rectangle.setPosition(rect.left,rect.top);
+    rectangle.setPosition(static_cast<float>(rect.left), static_cast<float>(rect.top));
     rectangle.setFillColor(color);
     
     pantalla->getRenderer()->draw(rectangle);
@@ -272,10 +272,10 @@ void Painter::paintBoardNext() {
 
     for (int i = 0; i < numberColumn + 1; i++) {
         sf::Vertex line[] = {
-            sf::Vertex(sf::Vector2f(i * meassureBoardNextShape.widthCell + meassureBoardNextShape.initBoardX,
-            meassureBoardNextShape.initBoardY)),
-            sf::Vertex(sf::Vector2f(i * meassureBoardNextShape.widthCell + meassureBoardNextShape.initBoardX,
-            yFinal))
+            sf::Vertex(sf::Vector2f(static_cast<float>(i * meassureBoardNextShape.widthCell + meassureBoardNextShape.initBoardX),
+									static_cast<float>(meassureBoardNextShape.initBoardY))),
+            sf::Vertex(sf::Vector2f(static_cast<float>(i * meassureBoardNextShape.widthCell + meassureBoardNextShape.initBoardX),
+				static_cast<float>(yFinal)))
         };
         pantalla->getRenderer()->draw(line, 2, sf::Lines);
 
@@ -283,10 +283,10 @@ void Painter::paintBoardNext() {
 
     for (int i = 0; i < numberRow + 1; i++) {
         sf::Vertex line[] = {
-            sf::Vertex(sf::Vector2f(meassureBoardNextShape.initBoardX,
-            i * meassureBoardNextShape.heigthCell + meassureBoardNextShape.initBoardY)),
-            sf::Vertex(sf::Vector2f(xFinal,
-            i * meassureBoardNextShape.heigthCell + meassureBoardNextShape.initBoardY))
+            sf::Vertex(sf::Vector2f(static_cast<float>(meassureBoardNextShape.initBoardX),
+				static_cast<float>(i * meassureBoardNextShape.heigthCell + meassureBoardNextShape.initBoardY))),
+            sf::Vertex(sf::Vector2f(static_cast<float>(xFinal),
+				static_cast<float>(i * meassureBoardNextShape.heigthCell + meassureBoardNextShape.initBoardY)))
         };
         pantalla->getRenderer()->draw(line, 2, sf::Lines);
     }
